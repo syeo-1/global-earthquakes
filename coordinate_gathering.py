@@ -119,7 +119,17 @@ def main():
     processed_earthquake_data = process_earthquake_data(earthquake_feature_data)
     # print(processed_earthquake_data)
     plotly_graph_data = process_earthquake_data_plotly(processed_earthquake_data)
-    graph_earthquake_data(plotly_graph_data)
+    
+    # adhoc data printout for csv
+    print('magnitude,longitude,lattitude')
+    for data in zip(
+        plotly_graph_data['magnitudes'],
+        plotly_graph_data['longitudes'],
+        plotly_graph_data['lattitudes'],
+    ):
+        print(f'{data[0]},{data[1]},{data[2]}')
+
+    # graph_earthquake_data(plotly_graph_data)
 
 
 if __name__ == '__main__':
