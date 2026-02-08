@@ -12,7 +12,7 @@ function getRedColor(value) {
 }
 
 var map = L.map('map', {
-    maxBounds: [[-90, -180], [90, 180]],
+    maxBounds: [[-90, -190], [90, 190]],
     maxBoundsViscosity: 1.0
 }).setView([2.207, 9.4403], 2.5); // close to libreville, which I think is pretty centred globally
 
