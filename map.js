@@ -12,7 +12,8 @@ function getRedColor(value) {
 }
 
 var map = L.map('map', {
-    worldCopyJump: true
+    maxBounds: [[-90, -180], [90, 180]],
+    maxBoundsViscosity: 1.0
 }).setView([2.207, 9.4403], 2.5); // close to libreville, which I think is pretty centred globally
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -40,8 +41,8 @@ fetch('data.csv')
       let magnitude_value = parseFloat(row.magnitude)
       L.circle([parseFloat(row.lattitude), parseFloat(row.longitude)], {
           color: 'red',
-          fillColor: '#f03',
-          fillOpacity: 0.5,
+          fillColor: getRedColor(magnitude_value),
+          fillOpacity: 1,
           radius: 8 ** parseFloat(magnitude_value)
       }).bindPopup(`magnitude: ${row.magnitude}<br>
                     longitude: ${row.longitude}<br>
