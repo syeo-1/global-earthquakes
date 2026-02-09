@@ -14,7 +14,7 @@ html {background-color: #1d404a;}
   position: fixed;
   z-index: 999;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
