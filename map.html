@@ -12,9 +12,18 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin="">
     </script>
+    <script type="module" src="map.js"></script>
+    <script src="sidebar.js"></script>
 </head>
 <body>
-     <div id="map"></div>
-     <script type="module" src="map.js"></script>
+     <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <span class="navbar" onclick="openNav()">&#9776; open</span>
+    <div id="map"></div>
 </body>
 </html>
