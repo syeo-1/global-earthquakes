@@ -13,7 +13,7 @@ html {background-color: #1d404a;}
 
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -22,15 +22,41 @@ html {background-color: #1d404a;}
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+
+  transform: translateX(100%);
+  overflow: hidden;
 }
 
-.sidenav a {
+.sidenav.open {
+  transform: translateX(0)
+}
+
+.sidenav-element {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
   display: block;
   transition: 0.3s;
+}
+
+.sidenav a {
+  color: #818181;
+}
+
+.sidenav h4 {
+  color: #d9d9d9;
+}
+
+.sidenav button {
+  margin: 32px 0;
+  margin-left: 25px;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.sidenav button:hover {
+  cursor: pointer;
+  color: #000000;
 }
 
 .sidenav a:hover {

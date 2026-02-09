@@ -17,17 +17,18 @@
 </head>
 <body>
      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="#" class="sidenav-element">About</a>
+        <button class="sidenav-element">Refresh Data</button>
+        <h4 class="sidenav-element">Date</h4>
+        <h4 class="sidenav-element">Magnitude</h4>
     </div>
     <!-- <span class="navbar" onclick="openNav()">&#9776; open</span> -->
     <!-- <button class="navbar" onclick="openNav()">&#9776; open</> -->
     <!-- <button style="display: inline-block;">HELLO</button> -->
     <div id="map">
-        <button class="map-menu" onclick="openNav()">Menu</button>
+        <button class="map-menu" onclick="toggleNav()">Menu</button>
     </div>
 </body>
 </html>

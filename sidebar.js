@@ -7,3 +7,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+function toggleNav() {
+    document.getElementById("mySidenav").classList.toggle("open");
+}
