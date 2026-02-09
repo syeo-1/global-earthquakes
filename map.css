@@ -1,4 +1,7 @@
-#map { height: 100vh; }
+#map {
+  height: 100vh;
+  position: relative
+}
 
 .leaflet-layer,
 .leaflet-control-zoom-in,
@@ -57,4 +60,19 @@ body {
   font-size: 50px;
   text-align: right;
   display: block;
+}
+
+.map-menu {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 998;
+  padding: 10px 14px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 26px;
+  font-size: 20px;
 }
