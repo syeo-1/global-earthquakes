@@ -20,9 +20,27 @@
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
         <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
         <a href="#" class="sidenav-element">About</a>
-        <button class="sidenav-element">Refresh Data</button>
-        <h4 class="sidenav-element">Date</h4>
-        <h4 class="sidenav-element">Magnitude</h4>
+        <!-- <h4 class="sidenav-element">Date</h4> -->
+        <div>
+            <label for="date-range" class="form-label">Date Range</label>
+            <input type="date" class="form-input">
+        </div>
+        <div>
+            <!-- <h6 class="sidenav-element">Magnitude</h6> -->
+            <!-- <input type="range" id="max-mag" min="0" max="10" value="10" step="1"> -->
+            <div>
+                <label for="min-mag" class="form-label">Minimum Magnitude</label>
+                <input type="number" class="form-input" name="Minimum Magnitude" id="min-mag" placeholder="0">
+            </div>
+            <div>
+                <label for="max-mag" class="form-label">Maximum Magnitude</label>
+                <input type="number" class="form-input" name="Maximum Magnitude" id="max-mag" placeholder="1">
+            </div>
+        </div>
+        <button class="sidenav-element">Update Map</button>
+        <!-- <div>
+            <input type="range" id="max-mag" min="0" max="10" value="10" step="1">
+        </div> -->
     </div>
     <!-- <span class="navbar" onclick="openNav()">&#9776; open</span> -->
     <!-- <button class="navbar" onclick="openNav()">&#9776; open</> -->
