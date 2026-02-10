@@ -11,8 +11,22 @@ function getRedColor(value) {
     return `hsl(0, 100%, ${lightness}%)`;
 }
 
+function updateMapDate() {
+    // uses the values in the forms to update the data shown on the map
+}
+
+function readableDate(epochMilliseconds) {
+    const date = new Date(epochMilliseconds)
+    const readableDateString = date.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    })
+    return readableDateString
+}
+
 var map = L.map('map', {
-    maxBounds: [[-90, -190], [90, 190]],
+    maxBounds: [[-90, -210], [90, 210]],
     maxBoundsViscosity: 1.0,
     minZoom: 2,
     maxZoom: 18,
@@ -24,7 +38,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-fetch('data.csv')
+// fetch('data.csv')
+fetch('leaflet_data.txt')
   .then(res => res.arrayBuffer())
   .then(buffer => {
     const decoder = new TextDecoder('utf-16le');
@@ -34,7 +49,8 @@ fetch('data.csv')
 
     const records = parse(text, {
       columns: true,
-      skip_empty_lines: true
+      skip_empty_lines: true,
+      delimiter: '|'
     });
 
     records.forEach(row => {
@@ -48,8 +64,8 @@ fetch('data.csv')
           fillOpacity: 1,
           radius: 8 ** parseFloat(magnitude_value)
       }).bindPopup(`magnitude: ${row.magnitude}<br>
-                    longitude: ${row.longitude}<br>
-                    lattitude: ${row.lattitude}`)
+                    date: ${readableDate(parseInt(row.time))}<br>
+                    place: ${row.place}`)
       .addTo(map);
     });
 });
