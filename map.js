@@ -85,6 +85,13 @@ function filterMapData() {
 
 }
 
+function resetMapData() {
+    markerLayer.clearLayers()
+    markers.forEach(marker => {
+        markerLayer.addLayer(marker)
+    })
+}
+
 function readableDate(epochMilliseconds) {
     const date = new Date(epochMilliseconds)
     const readableDateString = date.toLocaleDateString('en-US', {
@@ -162,3 +169,4 @@ fetch('leaflet_data.txt')
 // window.addEventListener("load", filterMapData);
 // map.addLayer(markers)
 document.getElementById("update-map").onclick = filterMapData
+document.getElementById("reset-map").onclick = resetMapData
