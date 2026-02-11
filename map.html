@@ -12,6 +12,7 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin="">
     </script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
     <script type="module" src="map.js"></script>
     <script src="sidebar.js"></script>
 </head>
@@ -39,7 +40,7 @@
                 <input type="number" step="0.01" class="form-input" name="Maximum Magnitude" id="max-mag" placeholder="1" min="0" max="10">
             </div>
         </div>
-        <button class="sidenav-element" onclick="validateFormValues()">Update Map</button>
+        <button class="sidenav-element" id="update-map">Update Map</button>
         <!-- <div>
             <input type="range" id="max-mag" min="0" max="10" value="10" step="1">
         </div> -->

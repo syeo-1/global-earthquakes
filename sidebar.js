@@ -12,19 +12,19 @@ function toggleNav() {
     document.getElementById("mySidenav").classList.toggle("open");
 }
 
-function getFormValues() {
-  const dateStartValue = document.getElementById("date-start").value;
-  const dateEndValue = document.getElementById("date-end").value;
-  const minMagValue = document.getElementById("min-mag").value;
-  const maxMagValue = document.getElementById("max-mag").value;
+// export function getFormValues() {
+//   const dateStartValue = document.getElementById("date-start").value;
+//   const dateEndValue = document.getElementById("date-end").value;
+//   const minMagValue = document.getElementById("min-mag").value;
+//   const maxMagValue = document.getElementById("max-mag").value;
 
-  return {
-    "dateStart": dateStartValue,
-    "dateEnd": dateEndValue,
-    "minMag": minMagValue,
-    "maxMag": maxMagValue
-  }
-}
+//   return {
+//     "dateStart": dateStartValue,
+//     "dateEnd": dateEndValue,
+//     "minMag": minMagValue,
+//     "maxMag": maxMagValue
+//   }
+// }
 
 function getTodayDate() {
   return (new Date()).toISOString().split('T')[0];
@@ -43,8 +43,6 @@ function getDateValues() {
 
   const today = (new Date()).toISOString().split('T')[0];
   const minDate = (new Date(new Date().setDate((new Date()).getDate() - 30))).toISOString().split('T')[0];
-  console.log(today)
-  console.log(minDate)
 
   return {
     "today": today,
@@ -53,12 +51,13 @@ function getDateValues() {
 
 }
 
-function validateFormValues() {
-  formValues = getFormValues()
-  getDateValues()
+// export function convertYYYYMMDDToEpochMilliseconds(dateString) {
+//   const [year, month, day] = dateString.split("-").map(Number)
+//   const epochMillisecondsDate = Date.UTC(year, month-1, day)
 
-  console.log(formValues)
-}
+//   return epochMillisecondsDate
+// }
+
 
 function setInitialFormRestrictionsAndValues() {
   dateValues = getDateValues()
@@ -74,3 +73,5 @@ function setInitialFormRestrictionsAndValues() {
   document.getElementById("min-mag").value = 0
   document.getElementById("max-mag").value = 10
 }
+
+// window.addEventListener("load", setInitialFormRestrictionsAndValues);
