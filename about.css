@@ -1,0 +1,25 @@
+html {
+    background-color: #111;
+    font-family: "Lato", sans-serif;
+    color: white;
+    font-size: 25px;
+}
+
+#about-info {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    color: #818181;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #f1f1f1;
+}
