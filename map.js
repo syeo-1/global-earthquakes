@@ -97,7 +97,12 @@ function readableDate(epochMilliseconds) {
     const readableDateString = date.toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
     })
     return readableDateString
 }
@@ -107,7 +112,7 @@ var map = L.map('map', {
     maxBoundsViscosity: 1.0,
     minZoom: 2,
     maxZoom: 18,
-    zoomControl: false
+    // zoomControl: false
 }).setView([2.207, 9.4403], 2.5); // close to libreville, which I think is pretty centred globally
 
 let markerLayer = L.layerGroup().addTo(map)
@@ -148,7 +153,7 @@ fetch('leaflet_data.txt')
       })
       
       newCircleMarker.bindPopup(`magnitude: ${row.magnitude}<br>
-                    date: ${readableDate(parseInt(row.time))}<br>
+                    time: ${readableDate(parseInt(row.time))}<br>
                     place: ${row.place}`)
       markers.push(newCircleMarker)
       markerLayer.addLayer(newCircleMarker)
