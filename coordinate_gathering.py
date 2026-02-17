@@ -16,6 +16,8 @@ import json, requests, sys
 
 from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
+import boto3
+from configuration import *
 
 def retrieve_earthquake_feature_data_from_api():
     '''
@@ -155,13 +157,45 @@ def output_data_for_leaflet(leaflet_data):
     ):
         sys.stdout.buffer.write(f'{data[0]}|{data[1]}|{data[2]}|{data[3]}|{data[4]}\n'.encode('utf-8'))
 
+def s3_connection_and_test():
+    client = boto3.client('s3')
+    filename = 'leaflet_data.txt'
+
+    earthquake_feature_data = retrieve_earthquake_feature_data_from_api()
+    processed_earthquake_data = process_earthquake_data(earthquake_feature_data)
+    leaflet_data = process_earthquake_data_leaflet(processed_earthquake_data)
+    leaflet_data_string_list = []
+    leaflet_data_string_list.append('magnitude|longitude|lattitude|time|place\n')
+    for data in zip(
+        leaflet_data['magnitudes'],
+        leaflet_data['longitudes'],
+        leaflet_data['lattitudes'],
+        leaflet_data['times_occured'],
+        leaflet_data['places'],
+    ):
+        leaflet_data_string_list.append(f'{data[0]}|{data[1]}|{data[2]}|{data[3]}|{data[4]}\n')
+
+    leaflet_data_string = ''.join(leaflet_data_string_list)
+
+    client.put_object(
+        Bucket=S3_BUCKET,
+        Key=filename,
+        Body=leaflet_data_string.encode('utf-16-le')
+    )
+
+
+
+
+
+
 
 
 def main():
-    earthquake_feature_data = retrieve_earthquake_feature_data_from_api()
-    processed_earthquake_data = process_earthquake_data(earthquake_feature_data)
-    leaflet_processed_earthquake_data = process_earthquake_data_leaflet(processed_earthquake_data)
-    output_data_for_leaflet(leaflet_processed_earthquake_data)
+    s3_connection_and_test()
+    # earthquake_feature_data = retrieve_earthquake_feature_data_from_api()
+    # processed_earthquake_data = process_earthquake_data(earthquake_feature_data)
+    # leaflet_processed_earthquake_data = process_earthquake_data_leaflet(processed_earthquake_data)
+    # output_data_for_leaflet(leaflet_processed_earthquake_data)
 
     # print(processed_earthquake_data)
     # plotly_graph_data = process_earthquake_data_plotly(processed_earthquake_data)
