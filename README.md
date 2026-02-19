@@ -1,8 +1,11 @@
 # global earthquake tracking
 
+[earthquakes.dev](https://earthquakes.dev)
+
 - a web project to learn more about web development, cloud, data, and GIS
 - this aim of this project is to provide a performant and user friendly way to visualize earthquakes
 that have occured globally within the last 30 days based on USGS earthquake data.
+- the data is updated every 10 minutes through the invoked lambda function and eventbridge
 
 ## tech stack
 - javascript for user interface development (leaflet maps)
