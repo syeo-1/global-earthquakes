@@ -12,7 +12,7 @@ that have occured globally within the last 30 days based on USGS earthquake data
 
 ## Systems Design
 
-![High Level System Design Diagram](./Earthquakes.dev architecture.drawio.png)
+![High Level System Design Diagram](./Earthquakes_architecture.png)
 
 ### What I learned about AWS
 
